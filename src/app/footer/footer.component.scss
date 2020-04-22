@@ -1,0 +1,19 @@
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: 15px;
+
+  .container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    p {
+      font-size: 14px;
+      text-align: center;
+      color: #6c757d!important;
+      line-height: 1.5;
+      margin: 30px 0 0;
+    }
+  }
+}

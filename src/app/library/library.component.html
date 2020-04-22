@@ -1,0 +1,33 @@
+<main>
+  <div class="results">
+    <h2 class="results_title">Resultats</h2>
+    <div class="container">
+
+   <!--   <div class="results_items">
+        <div *ngFor="let music of musics" class="result">
+          <div class="result_name">{{music.artistName}}</div>
+          <div class="result_filter">
+            <img src="{{music.artworkUrl100}}" style="height: 100%; width: 100%">
+          </div>
+          <div class="result_icon">
+            <fa-icon [icon]="faPlay"></fa-icon>
+          </div>
+
+        </div>
+      </div>-->
+
+      <div *ngFor="let music of musics" class="result">
+        <div class="imgBox">
+          <img src="{{music.artworkUrl100}}">
+        </div>
+        <div class="details">
+          <div class="content">
+            <h2>{{music.artistName}} - {{music.collectionName}}</h2>
+            <p>{{music.trackName }}</p>
+            <a mat-raised-button class="result_icon" href="{{music.previewUrl}}" target="_blank">Ecouter un extrait</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
