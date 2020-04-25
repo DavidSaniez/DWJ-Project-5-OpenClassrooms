@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {AuthService} from './core/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,8 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'MakeYourPlaylist';
+
+  constructor(private httpClient: HttpClient, private authService: AuthService) {
+    this.authService.getUser();
+  }
 }

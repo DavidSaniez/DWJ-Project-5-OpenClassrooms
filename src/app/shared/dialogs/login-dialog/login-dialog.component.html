@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Connexion</h1>
+<div mat-dialog-content>
+  <form [formGroup]="loginForm" (keyup.enter)="login()">
+    <div class="example-container">
+      <mat-form-field appearance="fill" class="login-input">
+        <mat-label>Veuillez entrer votre adresse email</mat-label>
+        <input matInput placeholder="pat@exemple.com" formControlName="email" required>
+        <mat-error *ngIf="loginForm.controls.email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="password-input">
+        <mat-label>Veuillez entrer votre mot de passe</mat-label>
+        <input matInput formControlName="password" type="password" required>
+        <mat-error *ngIf="loginForm.controls.password.invalid">{{getPasswordErrors()}}</mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Annuler</button>
+  <button mat-button cdkFocusInitial (click)="login()">Se connecter</button>
+</div>

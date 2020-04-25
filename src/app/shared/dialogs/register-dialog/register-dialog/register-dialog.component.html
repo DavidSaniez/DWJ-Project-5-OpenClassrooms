@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Inscription</h1>
+<div mat-dialog-content>
+  <form [formGroup]="registerForm" (keyup.enter)="register()">
+    <div class="example-container">
+      <mat-form-field appearance="fill" class="login-input">
+        <mat-label>Veuillez entrer un pseudo</mat-label>
+        <input matInput placeholder="pat@exemple.com" formControlName="name" required type="text">
+        <mat-error *ngIf="registerForm.controls.email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="login-input">
+        <mat-label>Veuillez entrer votre adresse email</mat-label>
+        <input matInput placeholder="pat@exemple.com" formControlName="email" required type="email">
+        <mat-error *ngIf="registerForm.controls.email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="password-input">
+        <mat-label>Veuillez entrer votre mot de passe</mat-label>
+        <input matInput formControlName="password" type="password" required>
+        <mat-error *ngIf="registerForm.controls.password.invalid">{{getPasswordErrors()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="password-input">
+        <mat-label>Veuillez confirmer votre mot de passe</mat-label>
+        <input matInput formControlName="password_confirmation" type="password" required>
+        <mat-error *ngIf="registerForm.controls.password.invalid">{{getPasswordErrors()}}</mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Annuler</button>
+  <button mat-button cdkFocusInitial (click)="register()">S'inscrire</button>
+</div>

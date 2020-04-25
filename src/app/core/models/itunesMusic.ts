@@ -1,4 +1,4 @@
-export interface Music {
+export interface ItunesMusic {
   wrapperType: string;
   kind: string;
   trackId: number;
@@ -46,6 +46,6 @@ export interface Music {
 }
 
 export interface Results {
-  musicsCount: number;
-  musics: Music[];
+  resultCount: number;
+  results: ItunesMusic[];
 }

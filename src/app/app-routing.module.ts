@@ -1,16 +1,17 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {LibraryComponent} from './library/library.component';
-import {MusicComponent} from './music/music.component';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {PlaylistComponent} from './components/playlist/playlist.component';
+import {MusicListComponent} from './components/music-list/music-list.component';
 
 
 const routes: Routes = [
-  {path: 'library', component: LibraryComponent},
-  {path: 'music/:musicId', component: MusicComponent},
+  {path: '', component: MusicListComponent},
+  {path: 'playlist', component: PlaylistComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

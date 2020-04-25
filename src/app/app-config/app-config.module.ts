@@ -6,10 +6,12 @@ export let APP_CONFIG = new InjectionToken<AppConfig>('app.config');
 
 export class AppConfig {
   apiEndPoint: string;
+  laravelEndpoint: string;
 }
 
 export const APP_DI_CONFIG: AppConfig = {
-  apiEndPoint: environment.apiEndpoint
+  apiEndPoint: environment.apiEndpoint,
+  laravelEndpoint: environment.laravelEndpoint
 };
 
 

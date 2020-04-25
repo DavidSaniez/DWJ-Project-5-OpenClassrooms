@@ -1,0 +1,49 @@
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Wendy+One&display=swap" rel="stylesheet">
+
+<header class="header">
+  <div class="header_texture"></div>
+  <div class="header_mask">
+    <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path d=" M0 100 L 0 0 C 25 100 75 100 100 0 L 100 100" fill="#fff"></path>
+    </svg>
+  </div>
+  <div class="container">
+    <div class="header_navbar">
+      <div class="header_navbar_logo">
+        <h1 class="header_navbar_logo_title">MakeYourPlaylist</h1>
+        <h1 class="header_navbar_logo_title_responsive">MYC</h1>
+      </div>
+      <div class="header_navbar_menu" [@openClose]="isOpen ? 'open' : 'closed'">
+        <ng-form class="search_bar">
+          <mat-search-bar type="submit" (keyup.enter)="onSubmit($event)" name="search" ngModel
+                          required></mat-search-bar>
+        </ng-form>
+        <ng-form class="search_bar_responsive">
+          <mat-search-bar type="submit" (keyup.enter)="onSubmit($event)" name="search" ngModel
+                          required></mat-search-bar>
+        </ng-form>
+        <a class="header_navbar_menu_link" routerLink="/">Accueil</a>
+        <ng-container *ngIf="!(currentUser$ | async)">
+          <a class="header_navbar_menu_link cursor" (click)="login()">Connexion</a>
+          <a class="header_navbar_menu_link cursor" (click)="register()">Inscription</a>
+        </ng-container>
+        <ng-container *ngIf="currentUser$ | async as user">
+          <a href="#" class="header_navbar_menu_link" routerLink="playlist">Playlist</a>
+          <mat-menu #appMenu="matMenu">
+            <button mat-menu-item class="logout_bttn" (click)="logout()">Deconnexion</button>
+          </mat-menu>
+          <button mat-icon-button [matMenuTriggerFor]="appMenu">
+            <span class="header_navbar_menu_link user_pseudo">{{user.name}}</span>
+          </button>
+        </ng-container>
+      </div>
+
+      <div class="header_navbar_toggle" (click)="toggleMenu()">
+        <span class="header_navbar_toggle_icon"></span>
+      </div>
+    </div>
+    <div class="header_slogan">
+      <h2 class="h_slogan_title">Créez votre playlist, écoutez des extraits</h2>
+    </div>
+  </div>
+</header>

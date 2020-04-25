@@ -48,11 +48,18 @@
 
         .content {
           position: absolute;
-          top: 50%;
+          top: 35%;
           transform: translateY(-50%);
           text-align: center;
           padding: 15px;
           color: #ffffff;
+
+          fa-icon {
+            margin-left: 70%;
+            font-size: 30px;
+            color: #f39c12;
+            cursor: pointer;
+          }
 
           h2 {
             margin: 0;
@@ -108,86 +115,5 @@
     }
   }
 }
-
-/*
-.results {
-  text-align: center;
-  padding-top: 30px;
-
-  .container {
-    width: 90%;
-    margin: auto;
-    position: relative;
-    z-index: 2;
-
-    .results_title {
-      font-size: 20px;
-      text-align: center;
-      color: #333333;
-      border-bottom: 3px solid #f39c12;
-      display: inline;
-      font-family: Nunito, sans-serif;
-    }
-
-    .results_items {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      padding-top: 40px;
-      flex-wrap: wrap;
-    }
-
-    .result {
-      width: 7%;
-      height: 100px;
-      border-radius: 5px;
-      position: relative;
-      overflow: hidden;
-      padding: 20px;
-      margin-bottom: 50px;
-      cursor: pointer;
-
-      .result_filter {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0;
-        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
-      }
-
-      .result_name {
-        color: #ffffff;
-        z-index: 1;
-        position: relative;
-        text-align: center;
-        font-size: 18px;
-        line-height: 28px;
-      }
-
-      .result_icon {
-        color: #f39c12;
-        z-index: 1;
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 60px;
-        height: 100%;
-        width: 100%;
-        transition: all 0.3s ease-in-out;
-        transform: translateY(100%);
-      }
-    }
-
-    .result:hover .result_icon {
-      transform: translateY(0%);
-    }
-  }
-
-}
-*/
 
 
