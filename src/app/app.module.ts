@@ -28,6 +28,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
 import {ToastrModule} from 'ngx-toastr';
 import {RegisterDialogComponent} from './shared/dialogs/register-dialog/register-dialog/register-dialog.component';
+import {JwtModule} from "@auth0/angular-jwt";
+import {getToken} from "codelyzer/angular/styles/cssLexer";
 
 
 @NgModule({

@@ -3,17 +3,25 @@ import {HttpClient} from '@angular/common/http';
 import {APP_CONFIG, AppConfig} from '../../app-config/app-config.module';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../models/user';
-import {register} from "ts-node";
+import {JwtHelperService} from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private httpClient: HttpClient, @Inject(APP_CONFIG) private config: AppConfig) {
+  constructor(
+    private httpClient: HttpClient,
+    @Inject(APP_CONFIG) private config: AppConfig,) {
+    // public jwtHelper: JwtHelperService
   }
 
   private currentUserSubject = new BehaviorSubject<User>(null);
+
+/*  public isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+    return !this.jwtHelper.isTokenExpired(token);*/
+  // }
 
   login(email: string, password: string) {
     this.httpClient.get(`${this.config.laravelEndpoint}sanctum/csrf-cookie `).subscribe(() => {

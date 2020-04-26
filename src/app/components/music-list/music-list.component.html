@@ -1,27 +1,34 @@
 <main>
-  <div class="results">
-    <h2 class="results_title">{{title}}</h2>
-    <div class="container">
-      <div *ngFor="let music of musics" class="result">
-        <div class="imgBox">
-          <img src="{{music.artwork_url}}">
-        </div>
-        <div class="details">
+  <ng-container *ngIf="!musics?.length && title === 'Résultats'; else showResults">
+    <div class="results">
+      <h2 class="results_title cursor" (click)="openSearchBar()">Cliquez ici pour effectuer une recherche</h2>
+    </div>
+  </ng-container>
+  <ng-template #showResults>
+    <div class="results">
+      <h2 class="results_title">{{title}}</h2>
+      <div class="container">
+        <div *ngFor="let music of musics" class="result">
+          <div class="imgBox">
+            <img src="{{music.artwork_url}}">
+          </div>
+          <div class="details">
+            <div class="content">
+              <fa-icon [icon]="faPlus" *ngIf="canAdd && (currentUser$ | async)" (click)="add(music)"></fa-icon>
+              <fa-icon [icon]="faMinusCircle" *ngIf="!canAdd" (click)="delete(music)"></fa-icon>
+              <h2>{{music.artist_name}} - {{music.collection_name}}</h2>
+              <p>{{music.name }}</p>
+              <a mat-raised-button class="result_icon" *ngIf="!audio; else showStopButton" (click)="play(music)"
+                 target="_blank">Ecouter un extrait</a>
+              <ng-template #showStopButton>
+                <a mat-raised-button class="result_icon" (click)="stop()" target="_blank">Mettre en
+                  pause</a>
+              </ng-template>
 
-          <div class="content">
-            <fa-icon [icon]="faPlus" *ngIf="canAdd" (click)="add(music)"></fa-icon>
-            <h2>{{music.artist_name}} - {{music.collection_name}}</h2>
-            <p>{{music.name }}</p>
-            <a mat-raised-button class="result_icon" *ngIf="!audio; else showStopButton" (click)="play(music)"
-               target="_blank">Ecouter un extrait</a>
-            <ng-template #showStopButton>
-              <a mat-raised-button class="result_icon" (click)="stop()" target="_blank">Mettre en
-                pause</a>
-            </ng-template>
-
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </ng-template>
 </main>

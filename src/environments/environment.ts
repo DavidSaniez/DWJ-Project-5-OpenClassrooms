@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   apiEndpoint: 'https://itunes.apple.com/',
   laravelEndpoint: 'http://app-itunes-api.choco.lat/'
 };

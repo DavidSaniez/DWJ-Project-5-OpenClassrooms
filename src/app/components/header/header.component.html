@@ -10,16 +10,16 @@
   <div class="container">
     <div class="header_navbar">
       <div class="header_navbar_logo">
-        <h1 class="header_navbar_logo_title">MakeYourPlaylist</h1>
-        <h1 class="header_navbar_logo_title_responsive">MYC</h1>
+        <h1 class="header_navbar_logo_title" routerLink="/">MakeYourPlaylist</h1>
+        <h1 class="header_navbar_logo_title_responsive" routerLink="/">MYC</h1>
       </div>
       <div class="header_navbar_menu" [@openClose]="isOpen ? 'open' : 'closed'">
         <ng-form class="search_bar">
-          <mat-search-bar type="submit" (keyup.enter)="onSubmit($event)" name="search" ngModel
+          <mat-search-bar #searchBarComponent type="submit" (keyup.enter)="onSubmit($event)" name="search" ngModel
                           required></mat-search-bar>
         </ng-form>
         <ng-form class="search_bar_responsive">
-          <mat-search-bar type="submit" (keyup.enter)="onSubmit($event)" name="search" ngModel
+          <mat-search-bar #searchBarComponent type="submit" (keyup.enter)="onSubmit($event)" name="search" ngModel
                           required></mat-search-bar>
         </ng-form>
         <a class="header_navbar_menu_link" routerLink="/">Accueil</a>

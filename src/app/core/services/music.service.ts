@@ -18,6 +18,10 @@ export class MusicService {
   }
 
   addToPlaylist(music: Music): Observable<Music> {
-    return this.httpClient.post<Music>(this.config.laravelEndpoint + 'api/musics', music);
+    return this.httpClient.post<Music>(`${this.config.laravelEndpoint}api/musics`, music);
+  }
+
+  deleteFromPlaylist(id): Observable<void> {
+    return this.httpClient.delete<void>(`${this.config.laravelEndpoint}api/musics/${id}`);
   }
 }

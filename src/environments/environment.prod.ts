@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  apiEndpoint: 'https://itunes.apple.com/',
+  laravelEndpoint: 'http://app-itunes-api.choco.lat/'
 };

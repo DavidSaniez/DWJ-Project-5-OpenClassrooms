@@ -16,6 +16,9 @@
       border-bottom: 3px solid #f39c12;
       display: inline;
       font-family: Nunito, sans-serif;
+      &.cursor:hover{
+        color: #4b67ff;
+      }
     }
   }
 
